@@ -10,7 +10,7 @@ title: Welcome
   <ul class="actions">
     <li v-for="action in stepData.actions">
       <a href="#" v-on:click="goToStep(this, action.stepId)">
-        &gt; {{action.text}} (to {{ action.stepId }})
+        &gt; {{action.text}}
       </a>
     </li>
   </ul>
