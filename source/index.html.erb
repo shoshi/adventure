@@ -4,8 +4,10 @@ title: Welcome
 
 <!-- Game component template -->
 <script type="text/x-template" id="game-template">
-  <h1>{{ stepData.text }}</h1>
-  <ul>
+  <div class="dialog">
+    <h1>{{ stepData.text }}</h1>
+  </div>
+  <ul class="actions">
     <li v-for="action in stepData.actions">
       <a href="#" v-on:click="goToStep(this, action.stepId)">
         {{action.text}} (to {{ action.stepId }})
@@ -15,6 +17,6 @@ title: Welcome
 </script>
 
 <!-- Game root element -->
-<div id="game">
+<div id="game" class="game">
   <game v-bind:data="storyData" v-bind:step="currentStep"></game>
 </div>
