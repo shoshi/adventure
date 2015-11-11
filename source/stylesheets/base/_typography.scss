@@ -4,7 +4,7 @@
 
 // Base
 body, input, textarea, button {
-  font-family: $sans-serif-stack;
+  font-family: $base-font-stack;
   font-size: $base-font-size;
   line-height: $base-line-height;
   text-align: $base-text-align;
@@ -17,6 +17,7 @@ h1 {
 
 // Links
 a {
-  color: blue; // TODO: real styles
+  border-bottom: 2px solid $white;
+  color: $white;
   text-decoration: none;
 }

@@ -63,7 +63,7 @@ App.game = new Vue({
         id: 4,
         text: 'Pity, we could have used another.',
         actions: [
-          { text: '> Initiate memory loss', stepId: 0 }
+          { text: 'Initiate memory loss', stepId: 0 }
         ]
       },
     ]

@@ -2,13 +2,42 @@
 
 // Colors
 $white:   #FFF;
-$text:    #333;
-$black:   #000;
+$bkg:     #a24bcf;
+$bkg-2:   #4b79cf;
+$bkg-3:   #4bc5cf;
 
 // Typography
-$sans-serif-stack:  'Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-font-stack:  'Cutive Mono', Courier, Arial, sans-serif;
 $base-text-align:   center;
 $base-line-height:  1.5;
-$base-font-size:    16px;
+$base-font-size:    18px;
 
 $type-sz-1:         32px;
+
+
+// MIXINS
+
+// Vendor Prefixed Properties
+
+// Animation
+@mixin keyframes($name) {
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+@mixin animation ($attrs) {
+  -webkit-animation: $attrs;
+     -moz-animation: $attrs;
+      -ms-animation: $attrs;
+       -o-animation: $attrs;
+          animation: $attrs;
+}
