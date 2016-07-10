@@ -42,7 +42,8 @@ App.game = new Vue({
         text: 'Are you friend or foe?',
         actions: [
           { text: 'Friend', stepId: 2 },
-          { text: 'Foe', stepId: 3 }
+          { text: 'Foe', stepId: 3 },
+          { text: 'Not sure', stepId: 3 }
         ]
       },
       {
@@ -56,7 +57,7 @@ App.game = new Vue({
         id: 3,
         text: 'What a shame.',
         actions: [
-          { text: '> Initiate memory loss', stepId: 0 }
+          { text: 'Initiate memory loss', stepId: 0 }
         ]
       },
       {
