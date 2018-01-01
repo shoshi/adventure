@@ -4,7 +4,7 @@ title: Welcome
 
 <!-- Game root element -->
 <div id="app">
-  <game :data="storyData" :step="currentStep"></game>
+  <game></game>
 </div>
 
 <!-- Game component template -->
@@ -12,7 +12,7 @@ title: Welcome
   <div class="game">
     <div class="dialog">
       <h1>{{ stepData.text }}</h1>
-    </div>
+    </div> <!-- .dialog -->
     <ul class="actions">
       <li v-for="action in stepData.actions">
         <a href="#" @click.prevent="goToStep(action.stepId)">
@@ -20,5 +20,5 @@ title: Welcome
         </a>
       </li>
     </ul>
-  </div>
+  </div> <!-- .game -->
 </script>
