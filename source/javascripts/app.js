@@ -15,8 +15,7 @@ Vue.component('game', {
     }
   },
   methods: {
-    goToStep: function(e, newStep) {
-      e.$event.preventDefault();
+    goToStep: function(newStep) {
       console.log('go to step: ' + newStep);
       this.step = newStep;
     }
@@ -25,7 +24,7 @@ Vue.component('game', {
 
 // bootstrap the demo
 App.game = new Vue({
-  el: '#game',
+  el: '#app',
   data: {
     currentStep: 0,
     // NOTE: We could store this anywhere, here is fine for now
