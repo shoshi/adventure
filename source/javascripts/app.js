@@ -2,33 +2,12 @@
 
 var App = App || {};
 
-// register the grid component
-Vue.component('game', {
-  template: '#game-template',
-  props: {
-    data: Array,
-    step: Number
-  },
-  computed: {
-    stepData: function () {
-      return this.data[this.step];
-    }
-  },
-  methods: {
-    goToStep: function(e, newStep) {
-      e.$event.preventDefault();
-      console.log('go to step: ' + newStep);
-      this.step = newStep;
-    }
-  }
-})
-
-// bootstrap the demo
-App.game = new Vue({
-  el: '#game',
-  data: {
+// VueX Store for game data
+App.store = new Vuex.Store({
+  state: {
     currentStep: 0,
-    // NOTE: We could store this anywhere, here is fine for now
+    // NOTE: We could store this in a DB instead. Steps could also be fetched
+    //       individually by ID when they become active
     storyData: [
       {
         id: 0,
@@ -68,5 +47,37 @@ App.game = new Vue({
         ]
       },
     ]
+  },
+  mutations: {
+    changeStep: function(state, newStep) {
+      state.currentStep = newStep;
+    }
   }
-})
+});
+
+// Register the game component
+Vue.component('game', {
+  template: '#game-template',
+  computed: {
+    data: function() {
+      return App.store.state.storyData;
+    },
+    step: function() {
+      return App.store.state.currentStep;
+    },
+    stepData: function () {
+      return this.data[this.step];
+    }
+  },
+  methods: {
+    goToStep: function(newStep) {
+      console.log('go to step: ' + newStep);
+      App.store.commit('changeStep', newStep);
+    }
+  }
+});
+
+// Setup the root game demo Vue
+App.game = new Vue({
+  el: '#app'
+});
